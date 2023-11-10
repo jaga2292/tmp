@@ -1,0 +1,27 @@
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select an item
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a *ngFor="let item of dropdownItems; let i = index" class="dropdown-item" [ngClass]="{ 'active': i === activeItemIndex }" (click)="setActiveItem(i)">
+      {{ item }}
+    </a>
+  </div>
+</div>
+
+
+
+export class YourComponent {
+  dropdownItems: string[] = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  activeItemIndex: number = 0; // Set the initial active item index
+
+  setActiveItem(index: number) {
+    this.activeItemIndex = index;
+  }
+}
+
+
+.dropdown-item.active {
+  background-color: #007bff;
+  color: #fff;
+}
